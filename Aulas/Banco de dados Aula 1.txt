@@ -1,0 +1,32 @@
+Banco de dados
+
+definição - Armazenamento, Gerenciamento e Facilitadores de acesso a dados essenciais
+
+Dados - Informações que podem ser processadas
+Tabelas - Estrutura para armazenamento de dados em formatos de linhas e colunas
+Chaves Primárias - Identificador para assegurar a integridade das tabelas e para identificar a entidade
+L> Grava um código de onde está armazenado a tabela no disco (usando índice/index) (toda chave primária)
+
+Entidade - Conjunto de informações
+
+Organizar informações de modo que, ocupem o menor espaço possível para ser armazenada mais dados
+
+Modelo de dados (modelagem de dados)
+
+Modelo relacional - Organiza os dados em tabelas e permite uma relação entre elas
+Ex (tipo uma tabela do excel):
+FK - Chave estrangeira
+PK - Chave Primária
+
+
+ 		Cliente		|	Carro
+	   (PK) Cód Cliente-------------Cód Cliente (FK) (chave estrangeira, necessita de uma chave primária)
+     		Nome		|	Cód Carro (PK)
+    		Nascimento	|	Nome do carro
+    		CPF		|	Modelo
+		Telefone	|	Placa
+
+
+
+
+
