@@ -1,0 +1,21 @@
+
+Oque é:
+https://www.lucidchart.com/pages/pt/o-que-e-diagrama-entidade-relacionamento
+
+Exemplos: 
+1 (crow's foot model) - https://uploads-us-west-2.insided.com/miro-us/attachment/84618230-ef75-4f4b-93c8-c1319da4eba8.png
+
+2 (minmax/explica + verbo) - https://th.bing.com/th/id/R.c765c2b697996e0094f552ef579d7f32?rik=BKPKFL5fypS3Eg&pid=ImgRaw&r=0
+
+3 (minmax model) - https://sae.unb.br/cae/conteudo/unbfga/sbd/imagens/modelagem2.png
+
+4 (minmax model) - https://lh3.googleusercontent.com/-
+Ou3LfDLHyP0/U0vXsR9KhwI/AAAAAAAAASA/BighZGashdk/s892/exercicioHOJElogico2.jpg
+
+5 (minmax model) - https://i.sstatic.net/4rESX.jpg
+
+
+Programas para criar modelos de banco de dados (lógico):
+
+Astah - Download: https://astah.net/downloads/
+Draw.io - Site: https://app.diagrams.net/
