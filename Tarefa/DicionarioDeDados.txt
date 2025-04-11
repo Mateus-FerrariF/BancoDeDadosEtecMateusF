@@ -1,0 +1,92 @@
+Dicionário de Dados do Banco de Dados
+Tabela: Cliente
+Descrição: Armazena informações sobre os clientes da empresa.
+
+Campo	Descrição	Tipo	Chave
+Codigo_Cliente	Identificador único do cliente.	Inteiro	PK
+Nome	Nome completo do cliente.	Texto	
+Morada	Endereço do cliente.	Texto	
+Telefone	Número de telefone do cliente.	Texto	
+Tabela: Veiculo
+Descrição: Armazena informações sobre os veículos dos clientes.
+
+Campo	Descrição	Tipo	Chave
+Codigo_Veiculo	Identificador único do veículo.	Inteiro	PK
+Codigo_Cliente	Identificador do cliente proprietário do veículo.	Inteiro	FK → Cliente.Codigo_Cliente
+Modelo	Modelo do veículo.	Texto	
+Marca	Marca do veículo.	Texto	
+Ano	Ano de fabricação do veículo.	Inteiro	
+Data_Aquisicao	Data de aquisição do veículo.	Data	
+Tabela: Reparacao
+Descrição: Armazena informações sobre as reparações realizadas nos veículos.
+
+Campo	Descrição	Tipo	Chave
+Codigo_Reparacao	Identificador único da reparação.	Inteiro	PK
+Codigo_Veiculo	Identificador do veículo reparado.	Inteiro	FK → Veiculo.Codigo_Veiculo
+Codigo_Cliente	Identificador do cliente proprietário do veículo.	Inteiro	FK → Cliente.Codigo_Cliente
+Data_Reparacao	Data em que a reparação foi realizada.	Data	
+Custo_Total	Custo total da reparação (inclui peças e mão de obra).	Decimal	
+Tabela: Funcionario
+Descrição: Armazena informações sobre os funcionários da oficina.
+
+Campo	Descrição	Tipo	Chave
+Codigo_Funcionario	Identificador único do funcionário.	Inteiro	PK
+Codigo_Categoria	Identificador da categoria do funcionário.	Inteiro	FK → Categoria.Codigo_Categoria
+Nome	Nome completo do funcionário.	Texto	
+Morada	Endereço do funcionário.	Texto	
+Telefone	Número de telefone do funcionário.	Texto	
+Salario	Salário do funcionário.	Decimal	
+Tabela: Categoria
+Descrição: Armazena informações sobre as categorias ou cargos dos funcionários.
+
+Campo	Descrição	Tipo	Chave
+Codigo_Categoria	Identificador único da categoria.	Inteiro	PK
+Nome	Nome da categoria (ex: Mecânico, Eletricista).	Texto	UNIQUE
+Salario_Basico	Salário básico da categoria.	Decimal	
+Descricao	Descrição detalhada da categoria.	Texto	
+Tabela: Reparacao_Funcionario
+Descrição: Relaciona funcionários com as reparações que realizaram, incluindo tempo e custo de mão de obra.
+
+Campo	Descrição	Tipo	Chave
+Codigo_Reparacao	Identificador da reparação realizada.	Inteiro	FK → Reparacao.Codigo_Reparacao
+Codigo_Funcionario	Identificador do funcionário responsável.	Inteiro	FK → Funcionario.Codigo_Funcionario
+Tempo_Manual	Tempo gasto pelo funcionário na reparação (em horas).	Decimal	
+Custo_Manual	Custo de mão de obra do funcionário na reparação.	Decimal	
+Tabela: Peca
+Descrição: Armazena informações sobre as peças utilizadas nas reparações.
+
+Campo	Descrição	Tipo	Chave
+Codigo_Peca	Identificador único da peça.	Inteiro	PK
+Designacao	Descrição ou nome da peça.	Texto	
+Custo_Unitario	Custo unitário da peça.	Decimal	
+Quantidade_Em_Estoque	Quantidade disponível da peça em estoque.	Inteiro	
+Codigo_Armazem	Identificador do armazém onde a peça está armazenada.	Inteiro	FK → Armazem.Codigo_Armazem
+Tabela: Armazem
+Descrição: Armazena informações sobre os armazéns que estocam as peças.
+
+Campo	Descrição	Tipo	Chave
+Codigo_Armazem	Identificador único do armazém.	Inteiro	PK
+Localizacao	Localização do armazém.	Texto	
+Quantidade_Total	Quantidade total de peças armazenadas.	Inteiro	
+Tabela: Reparacao_Peca
+Descrição: Relaciona as reparações com as peças utilizadas, incluindo a quantidade de cada peça usada e o preço unitário.
+
+Campo	Descrição	Tipo	Chave
+Codigo_Reparacao	Identificador da reparação.	Inteiro	FK → Reparacao.Codigo_Reparacao
+Codigo_Peca	Identificador da peça utilizada.	Inteiro	FK → Peca.Codigo_Peca
+Quantidade	Quantidade de peças utilizadas na reparação.	Inteiro	
+Preco_Unitario	Preço unitário da peça utilizada.	Decimal	
+Relacionamentos
+Cliente → Veículo: Um cliente pode ter vários veículos, mas cada veículo pertence a um único cliente (1:N).
+
+Veículo → Reparação: Um veículo pode passar por várias reparações, mas cada reparação é realizada em um único veículo (1:N).
+
+Cliente → Reparação: Um cliente pode ter várias reparações, mas cada reparação está associada a um único cliente (1:N).
+
+Reparação → Peça: Uma reparação pode envolver várias peças, e uma peça pode ser usada em várias reparações (N:M).
+
+Reparação → Funcionário: Uma reparação pode ser realizada por vários funcionários, e um funcionário pode realizar várias reparações (N:M).
+
+Funcionario → Categoria: Cada funcionário pertence a uma categoria específica (1:N).
+
+Peça → Armazém: Cada peça está armazenada em um único armazém, mas um armazém pode armazenar várias peças (1:N).
