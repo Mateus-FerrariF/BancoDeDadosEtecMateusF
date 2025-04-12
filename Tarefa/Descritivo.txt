@@ -1,0 +1,31 @@
+A tabela tb_Cliente armazena as informacoes dos clientes da oficina, como nome, endereco e telefone. Cada cliente tem um identificador unico, o Codigo do Cliente, que o distingue.
+
+A tabela tb_Veiculo guarda dados sobre os veiculos dos clientes, incluindo o modelo, a marca, o ano e a data de aquisicao. Cada veiculo esta associado a um cliente especifico atraves do Codigo do Cliente.
+
+A tabela tb_Reparacao registra as reparacoes feitas nos veiculos, contendo informacoes sobre a data da reparacao e o custo total. Cada reparacao é vinculada a um veiculo e a um cliente especifico.
+
+Na tabela tb_Funcionario, sao armazenados os dados dos funcionarios da oficina, como nome, telefone, salario e a categoria de cargo. Cada funcionario é vinculado a uma Categoria, que é detalhada na tabela tb_Categoria, que armazena o nome e o salario basico de cada categoria de trabalho.
+
+A tabela tb_Reparacao_Funcionario conecta os funcionarios as reparacoes que realizaram, armazenando o tempo gasto e o custo de mao de obra de cada um. É uma tabela de relacionamento entre Reparacoes e Funcionarios.
+
+A tabela tb_Peca contem informacoes sobre as pecas utilizadas nas reparacoes, como o nome da peca, o custo unitario e a quantidade disponivel em estoque. As pecas estao associadas a um armazem especifico, que é gerido pela tabela tb_Armazem, a qual registra a localizacao e a quantidade total de pecas armazenadas.
+
+Por fim, a tabela tb_Reparacao_Peca relaciona as pecas utilizadas nas reparacoes, incluindo a quantidade de cada peca e o preco unitario.
+
+
+
+Relações:
+
+Cliente → Veículo: Cada cliente pode ter vários veículos, mas cada veículo pertence a um único cliente.
+
+Veículo → Reparação: Cada veículo pode passar por várias reparações, mas cada reparação é realizada em um único veículo.
+
+Cliente → Reparação: Cada cliente pode ter várias reparações associadas aos seus veículos.
+
+Reparação → Peça: Uma reparação pode envolver várias peças, e uma peça pode ser utilizada em várias reparações.
+
+Reparação → Funcionário: Uma reparação pode ser realizada por vários funcionários, e um funcionário pode realizar várias reparações.
+
+Funcionario → Categoria: Cada funcionário pertence a uma categoria específica de cargo, mas uma categoria pode ter vários funcionários.
+
+Peça → Armazém: Cada peça é armazenada em um único armazém, mas um armazém pode armazenar várias peças.
