@@ -1,0 +1,109 @@
+DROP DATABASE IF EXISTS lojaDb;
+
+CREATE DATABASE lojaDb;
+
+USE lojaDb;
+
+CREATE TABLE Clientes (
+ id_cliente INT AUTO_INCREMENT,
+ nome VARCHAR(100) NOT NULL,
+ sobreNome VARCHAR(100),
+ cpf VARCHAR(14) NOT NULL,
+ email VARCHAR(255),
+ PRIMARY KEY(id_cliente)
+);
+CREATE TABLE Veiculos (
+ id_veiculos INT AUTO_INCREMENT,
+ modelo VARCHAR(100),
+ marca VARCHAR(100),
+ anoFabricacao INT,
+ id_cliente INT,
+ PRIMARY KEY(id_veiculos),
+ FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
+);
+CREATE TABLE Fornecedor (
+ id_fornecedor INT AUTO_INCREMENT,
+ nomePeca VARCHAR(100),
+ quantidade INT,
+ PRIMARY KEY(id_fornecedor)
+);
+CREATE TABLE Pecas (
+ id_pecas INT AUTO_INCREMENT,
+ custoUnitario FLOAT,
+ quantidadeEstoque INT,
+ id_fornecedor INT,
+ PRIMARY KEY(id_pecas),
+ FOREIGN KEY (id_fornecedor) REFERENCES Fornecedor(id_fornecedor)
+);
+CREATE TABLE Categorias (
+ id_categoria INT AUTO_INCREMENT,
+ descricao VARCHAR(100),
+ custoHora FLOAT,
+ PRIMARY KEY(id_categoria)
+);
+CREATE TABLE Funcionarios (
+ id_funcionario INT AUTO_INCREMENT,
+ nome VARCHAR(100) NOT NULL,
+ sobreNome VARCHAR(100),
+ cpf VARCHAR(14) NOT NULL,
+ horasTrabalhadas TIME,
+ id_categoria INT,
+ PRIMARY KEY(id_funcionario),
+ FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria)
+);
+CREATE TABLE Reparacao (
+ id_reparacao INT AUTO_INCREMENT,
+ id_cliente INT,
+ id_veiculo INT,
+ id_funcionario INT,
+ id_peca INT,
+ quantidadeUsada INT,
+ dataReparacao DATE,
+ custoTotal FLOAT,
+ PRIMARY KEY(id_reparacao),
+ FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
+ FOREIGN KEY (id_veiculo) REFERENCES Veiculos(id_veiculos),
+ FOREIGN KEY (id_funcionario) REFERENCES
+Funcionarios(id_funcionario),
+ FOREIGN KEY (id_peca) REFERENCES Pecas(id_pecas)
+);
+CREATE TABLE CondicaoPagamento (
+ id_condicaoPagamento INT AUTO_INCREMENT,
+ banco VARCHAR(100),
+ cupomDesconto CHAR(10),
+ PRIMARY KEY(id_condicaoPagamento)
+);
+CREATE TABLE HistoricoPropriedade (
+ id_historico INT AUTO_INCREMENT,
+ id_cliente INT,
+ id_veiculo INT,
+17
+ dataAquisicao DATE,
+ dataVenda DATE,
+ id_condicaoPagamento INT,
+ PRIMARY KEY(id_historico),
+ FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
+ FOREIGN KEY (id_veiculo) REFERENCES Veiculos(id_veiculos),
+ FOREIGN KEY (id_condicaoPagamento) REFERENCES
+CondicaoPagamento(id_condicaoPagamento)
+);
+CREATE TABLE MaoDeObra(
+ id_maoDeObra INT AUTO_INCREMENT,
+ id_reparacao INT,
+ id_funcionario INT,
+ horasTrabalhadas INT NOT NULL,
+ custoCalculado DECIMAL,
+ PRIMARY KEY (id_maoDeObra),
+ FOREIGN KEY (id_reparacao) REFERENCES Reparacao(id_reparacao),
+ FOREIGN KEY (id_funcionario) REFERENCES
+Funcionarios(id_funcionario)
+);
+CREATE TABLE Empresa (
+ id_empresa INT AUTO_INCREMENT,
+ dataVenda DATE,
+ id_cliente INT,
+ id_veiculos INT,
+ PRIMARY KEY(id_empresa),
+ FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
+ FOREIGN KEY (id_veiculos) REFERENCES Veiculos(id_veiculos)
+);

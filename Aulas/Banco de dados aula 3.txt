@@ -1,0 +1,13 @@
+
+
+
+use lojaDb;
+
+insert into clientes (nome, sobrenome, cpf, email)
+values
+('Rafael', 'Lange', '08822244453','RafaLang@email.com')
+('Sônia', 'Pera', 21838283981','SoneaPera@email2.com')
+
+
+
+(ai ele insere no banco ne fdp, o nome é insert n tem outra função)
