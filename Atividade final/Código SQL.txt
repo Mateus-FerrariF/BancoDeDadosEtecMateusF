@@ -1,0 +1,48 @@
+CREATE DATABASE escola;
+
+
+CREATE TABLE alunos (
+aluno_id INT AUTO_INCREMENT PRIMARY KEY,
+
+);
+
+CREATE TABLE matriculas (
+matricula_id INT AUTO_INCREMENT PRIMARY KEY,
+
+);
+
+CREATE TABLE turmas (
+turma_id INT AUTO_INCREMENT PRIMARY KEY,
+
+);
+
+CREATE TABLE funcionario (
+funcionario INT AUTO_INCREMENT PRIMARY KEY,
+
+);
+
+CREATE TABLE cursosExtracurriculares (
+cursoExtra_id INT AUTO_INCREMENT PRIMARY KEY,
+ 
+);
+
+CREATE TABLE notas (
+notas_id INT AUTO_INCREMENT PRIMARY KEY,
+
+);
+
+CREATE TABLE faltas (
+faltas_id INT AUTO_INCREMENT PRIMARY KEY,
+
+);
+
+CREATE TABLE pagamento (
+pagamentos_id INT AUTO_INCREMENT PRIMARY KEY,
+
+);
+
+CREATE TABLE eventos (
+evento_id INT AUTO_INCREMENT PRIMARY KEY,
+
+);
+
