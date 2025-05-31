@@ -1,0 +1,11 @@
+CREATE DATABASE escola
+
+CREATE TABLE gestaoEscolar (
+  contrado_id int,
+  cargo varchar(255), 
+  turno varchar(255),
+  setor varchar(255)
+);
+CREATE TABLE matricula (
+
+);

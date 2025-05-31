@@ -1,0 +1,15 @@
+Crie um banco de dados relacional para uma escola particular, integral e exclusiva para ensino médio. O banco de dados deve gerenciar alunos, responsáveis, professores, turmas, pagamentos, eventos, boletins e a administração escolar. O sistema deve incluir:
+Gestão de Alunos e Responsáveis:
+Cada aluno deve ter um registro único de matrícula, vinculado a um ou mais responsáveis.
+Os responsáveis devem conter informações de contato e relacionamento com o aluno.
+Gestão Acadêmica:
+As turmas devem ser organizadas por ano letivo e permitir a vinculação de professores e matérias.
+Os professores podem ministrar várias disciplinas e estar associados a mais de uma turma.
+O boletim deve registrar notas e frequência por bimestre e indicar status de aprovação.
+Gestão Financeira:
+O banco de dados deve permitir o registro de pagamentos, vinculando-os a matrículas, contratos e eventos.
+Métodos de pagamento aceitos incluem cartão, boleto, PIX e dinheiro.
+Deve haver um registro de contratos, para organizar informações financeiras dos funcionários.
+Eventos e Administração:
+O sistema deve permitir o cadastro de eventos escolares, vinculando-os a turmas e professores.
+A gestão escolar deve conter funcionários administrativos, organizados por setor, cargo e turno.
